@@ -1,19 +1,22 @@
-let $personnesNumber = $("#personnes").text();
-
 const $addPersonButton = $("#personnes-plus");
+const $remPersonButton = $("#personnes-moins");
 
 $addPersonButton.on("click", (e) => {
-    $.each($qteIngredients, (index, elem) => {
-        let qte = parsefloat($(elem).text()) / numPerson;
-        
-        qte = qte * numPerson;
-    }
-    let $number = Number($("#personnes").text());
-    let $newNumber = number + 1
-    let $multiply = newNumber / number
-    let $ings = $("ingredient")
-    ings.each(() => { 
-        let $tempIng = Number(this.html()) * multiply
-        this.html(tempIng.toString());
-    }
+    let $number = parseFloat($("#personnes").text());
+    $funcChangeRecipe($number, $number + 1);
 });
+
+$remPersonButton.on("click", (e) => {
+    let $number = parseFloat($("#personnes").text());
+    if($number > 2)
+        $funcChangeRecipe($number, $number - 1);
+});
+
+$funcChangeRecipe = function(number, newNumber) {
+    let $multiply = newNumber / number;
+    $(".ingredient").each((index, elem) => {
+        let $tempIng = parseFloat($(elem).text()) * $multiply;
+        $(elem).text($tempIng.toString());
+    });
+    $("#personnes").text(newNumber.toString());
+}
