@@ -41,10 +41,10 @@
               </div>
               <div id="navbarMenuHeroA" class="navbar-menu">
                 <div class="navbar-end">
-                  <a class="navbar-item" href="index.html">
+                  <a class="navbar-item" href="index.php">
                     Accueil
                   </a>
-                  <a class="navbar-item is-active" href="recette.html">
+                  <a class="navbar-item is-active" href="recette.php">
                     Recettes
                   </a>
                 </div>
