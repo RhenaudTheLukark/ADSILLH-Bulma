@@ -1,3 +1,4 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!doctype html>
 <html class="no-js" lang="fr">
   <head>
@@ -22,7 +23,6 @@
     <!--[if lte IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
-
     <header class="section">
       <section class="hero is-warning">
         <!-- Hero head: will stick at the top -->
@@ -44,7 +44,7 @@
                   <a class="navbar-item" href="indexCI.php">
                     Accueil
                   </a>
-                  <a class="navbar-item is-active" href="recette.php">
+                  <a class="navbar-item" href="recette.php">
                     Recettes
                   </a>
                 </div>
@@ -75,79 +75,9 @@
           </div>
           <div class="control">
             <a class="button is-info">
-              Search
+              Recherche
             </a>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="box has-text-centered">
-	  <h1>Pâtes a la bière</h1>
-	  <img src="img/cooking-1869942_1280.jpg" alt="Pâtes a la bière" width="500px" />
-	</div>
-	<div class="columns is-mobile">
-	  <div class="column has-text-centered has-centered">
-	    <div class="content">
-	      Temps de cuisson: 40mn
-	    </div>
-	  </div>
-	  <div class="column has-text-centered has-centered">
-	    <div class="content">
-	      Nb personnes: <div id="personnes">4000</div>
-         <button type="button" id="personnes-moins">-</button> 
-         <button type="button" id="personnes-plus">+</button> 
-	      </div>
-	  </div>
-	  <div class="column has-text-centered has-centered">
-	    <div class="content">
-	      Difficulté: facile 2/4
-	      </div>
-	  </div>
-	</div>
-	<div class="columns is-mobile">
-	  <div class="column">
-	    <div class="content">
-	      <h2>Ingredient</h2>
-	      <ul>
-		<li><span class="ingredient">500</span>kg de pâtes</li>
-		<li><span class="ingredient">1000</span>litre de bière</li>
-	      </ul>
-	    </div>
-	  </div>
-	  <div class="column is-9">
-	    <div class="content">
-	      <h2>Préparation</h2>
-	      <ol>
-		<li>Faire cuire les pâtes</li>
-		<li>Se servire une bière !</li>
-		<li>Mangez !</li>
-	      </ol>
-	    </div>
-	  </div>
-	</div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="content has-text-centered">
-          <p>
-            <strong>ADSILLH Bulma</strong> by Rhenaud TheLukark,
-            <a href="https://parouby.fe">Pierre-Antoine Rouby</a>.
-            The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-  </body>
-</html>
