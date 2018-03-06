@@ -4,6 +4,12 @@ class IngredientModel extends MY_Model {
         return $this->getAllFromDb("ingredient");
     }
 
+    public function getAllNoNest() {
+        $query = $this->db->select("ingredient.*")->from("ingredient");
+        $result = $query->get()->result("ingredient");
+        return $result;
+    }
+
     public function getIngredientsByRecipe(int $recipeId) {
         
     }

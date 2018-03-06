@@ -2,9 +2,11 @@
 class IngredientController extends MY_Controller {
     public function index() {
         $this->load->model("IngredientModel");
+        $ingredients = $this->IngredientModel->getAll();
         $data = array(
-            'dummy' => $this->IngredientModel->getAll()
+            'pageTitle' => "Marmitonne", 
+            'dummy' => $ingredients
         );
-        $this->load->view("recipe/recipeList", $data);
+        $this->renderView("recipe/recipeList", $data);
     }
 }
