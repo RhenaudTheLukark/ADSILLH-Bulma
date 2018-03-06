@@ -46,7 +46,6 @@ DROP TABLE IF EXISTS `recipe`;
 CREATE TABLE IF NOT EXISTS `recipe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `ingredients` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `difficulty` decimal(10,0) NOT NULL,
   `note` int(11) NOT NULL,
