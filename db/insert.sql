@@ -9,23 +9,17 @@ INSERT INTO ingredient VALUE (8, 'emental');
 INSERT INTO ingredient VALUE (9, 'sucre');
 
 INSERT INTO recipe VALUE (
-       1,
-       'pates a la carbo',
-       15,
-       0,
-       5,
-       4,
-       'Maim !'
-);
+1, 'pates a la carbo',
+15, 0, 5, 4, 'Maim !');
 
 INSERT INTO recipe_ingredients VALUE (
-1, 'pates a la carbo', 'pates', 1, 100);
+1, 'pates a la carbo', 'pates', 400, 'g');
 
 INSERT INTO recipe_ingredients VALUE (
-2, 'pates a la carbo', 'oeuf', 1, 2);
+2, 'pates a la carbo', 'oeuf', 2, '');
 
 INSERT INTO recipe_ingredients VALUE (
-3, 'pates a la carbo', 'creme', 1, 10);
+3, 'pates a la carbo', 'creme', 10, 'cl');
 
 INSERT INTO recipe_ingredients VALUE (
-4, 'pates a la carbo', 'emental', 1, 20);
+4, 'pates a la carbo', 'emental', 20, 'g');
