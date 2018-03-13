@@ -1,25 +1,45 @@
-INSERT INTO ingredient VALUE (1, 'farine');
-INSERT INTO ingredient VALUE (2, 'sel');
-INSERT INTO ingredient VALUE (3, 'eau');
-INSERT INTO ingredient VALUE (4, 'lait');
-INSERT INTO ingredient VALUE (5, 'oeuf');
-INSERT INTO ingredient VALUE (6, 'pates');
-INSERT INTO ingredient VALUE (7, 'creme');
-INSERT INTO ingredient VALUE (8, 'emental');
-INSERT INTO ingredient VALUE (9, 'sucre');
+INSERT INTO ingredient (name) VALUE ('farine');
+INSERT INTO ingredient (name) VALUE ('sel');
+INSERT INTO ingredient (name) VALUE ('eau');
+INSERT INTO ingredient (name) VALUE ('lait');
+INSERT INTO ingredient (name) VALUE ('oeuf');
+INSERT INTO ingredient (name) VALUE ('pates');
+INSERT INTO ingredient (name) VALUE ('creme');
+INSERT INTO ingredient (name) VALUE ('emental');
+INSERT INTO ingredient (name) VALUE ('sucre');
 
-INSERT INTO recipe VALUE (
-1, 'pates a la carbo',
+INSERT INTO recipe (name, time, difficulty, note, peopleNb, text) VALUE (
+'pates a la carbo',
 15, 0, 5, 4, 'Maim !');
 
-INSERT INTO recipe_ingredients VALUE (
-1, 'pates a la carbo', 'pates', 400, 'g');
+INSERT INTO recipe_ingredients (recipeName,
+       ingredient,
+       quantity,
+       quantity_unit)
+       VALUE (
+       	     'pates a la carbo',
+	     'pates', 400, 'g');
 
-INSERT INTO recipe_ingredients VALUE (
-2, 'pates a la carbo', 'oeuf', 2, '');
+INSERT INTO recipe_ingredients (recipeName,
+       ingredient,
+       quantity,
+       quantity_unit)
+       VALUE (
+       	     'pates a la carbo',
+	     'oeuf', 2, '');
 
-INSERT INTO recipe_ingredients VALUE (
-3, 'pates a la carbo', 'creme', 10, 'cl');
+INSERT INTO recipe_ingredients (recipeName,
+       ingredient,
+       quantity,
+       quantity_unit)
+       VALUE (
+       	     'pates a la carbo',
+	     'creme', 10, 'cl');
 
-INSERT INTO recipe_ingredients VALUE (
-4, 'pates a la carbo', 'emental', 20, 'g');
+INSERT INTO recipe_ingredients (recipeName,
+       ingredient,
+       quantity,
+       quantity_unit)
+       VALUE (
+       	     'pates a la carbo',
+	     'emental', 20, 'g');
