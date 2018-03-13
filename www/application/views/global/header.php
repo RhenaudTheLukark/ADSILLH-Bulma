@@ -8,13 +8,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="manifest" href="assets/site.webmanifest">
-    <link rel="apple-touch-icon" href="assets/icon.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <link rel="apple-touch-icon" href="/assets/icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/bulma.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
   </head>
