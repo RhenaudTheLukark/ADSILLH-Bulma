@@ -3,25 +3,25 @@
     <section class="section">
       <div class="container">
         <div class="box has-text-centered">
-	  <h1>Pâtes a la bière</h1>
-	  <img src="img/cooking-1869942_1280.jpg" alt="Pâtes a la bière" width="500px" />
+         <h1> <?php echo $title ?> </h1>
+	  <img src="/assets/img/cooking-1869942_1280.jpg" alt="Pâtes a la bière" width="500px" />
 	</div>
 	<div class="columns is-mobile">
 	  <div class="column has-text-centered has-centered">
 	    <div class="content">
-	      Temps de cuisson: 40mn
+	      Temps de cuisson: <?php echo $time ?>mn
 	    </div>
 	  </div>
 	  <div class="column has-text-centered has-centered">
 	    <div class="content">
-	      Nb personnes: <div id="personnes">4</div>
+	      Nb personnes: <div id="personnes"><?php echo $personne ?></div>
          <button type="button" id="personnes-moins">-</button>
          <button type="button" id="personnes-plus">+</button>
 	      </div>
 	  </div>
 	  <div class="column has-text-centered has-centered">
 	    <div class="content">
-	      Difficulté: facile 2/4
+	      Difficulté: facile <?php echo $diff ?>/4
 	      </div>
 	  </div>
 	</div>
@@ -30,19 +30,20 @@
 	    <div class="content">
 	      <h2>Ingredient</h2>
 	      <ul>
-		<li><span class="ingredient">500</span>g de pâtes</li>
-		<li><span class="ingredient">1</span>litre de bière</li>
+            <?php
+              for ($i = 0 ; $i < count($ingredient) ; $i++) {
+                echo "<li><span class=\"ingredient\">". $ingredient[$i][1] .
+                    "</span>".$ingredient[$i][2] ." de ".$ingredient[$i][0].
+                    "</li>";
+              }
+            ?>
 	      </ul>
 	    </div>
 	  </div>
 	  <div class="column is-9">
 	    <div class="content">
 	      <h2>Préparation</h2>
-	      <ol>
-		<li>Faire cuire les pâtes</li>
-		<li>Se servire une bière !</li>
-		<li>Mangez !</li>
-	      </ol>
+	      <?php echo "<ol>".$recipe."</ol>"; ?>
 	    </div>
 	  </div>
 	</div>
