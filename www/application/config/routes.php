@@ -54,3 +54,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['recipe'] = 'RecipeController';
 $route['recipe/(:num)'] = 'RecipeController/recipe/$1';
+$route['ingredients'] = 'IngredientController';
+$route['ingredients/update'] = 'IngredientController/update';
+$route['ingredients/insert'] = 'IngredientController/insert';

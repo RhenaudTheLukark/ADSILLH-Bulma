@@ -17,4 +17,12 @@ class RecipeController extends MY_Controller {
         
         $this->renderView('recipe/main', $data);
     }
+
+    public function recipe($id) {
+        $data = array(
+            'pageTitle' => "Marmitonne"
+        );
+
+        $this->renderView('recipe/main', $data);
+    }
 }

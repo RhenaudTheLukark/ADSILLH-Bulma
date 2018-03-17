@@ -74,8 +74,9 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn' => '',
 	'hostname' => 'localhost',
+	'port' => 3306,
 	'username' => 'admin',
 	'password' => 'admin',
 	'database' => 'adsillh-bulma',

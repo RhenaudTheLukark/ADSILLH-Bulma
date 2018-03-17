@@ -54,7 +54,7 @@
         <div class="hero-body">
           <div class="container has-text-centered">
             <h1 class="title">
-              <?= $pageTitle ?>
+              Marmitonne
             </h1>
             <h2 class="subtitle">
               La cuisine qui détonne
