@@ -6,7 +6,7 @@ class IngredientController extends MY_Controller {
         $data = array( 
             'dummy' => $ingredients
         );
-        $this->renderView("recipe/recipeList", $data);
+        $this->renderView("ingredient/list", $data);
     }
 
     public function update() {
@@ -25,6 +25,7 @@ class IngredientController extends MY_Controller {
             $this->load->model("IngredientModel");
             $this->IngredientModel->insert($_POST["name"]);
         }
+        
         $this->index();
     }
 }
