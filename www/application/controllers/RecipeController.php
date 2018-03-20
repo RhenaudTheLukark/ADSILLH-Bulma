@@ -11,8 +11,19 @@ class RecipeController extends MY_Controller {
         $this->renderView('recipe/list', $data);
     }
 
-    public function recipe($id) {
-        $this->renderView('recipe/recipe');
+    public function recipe($name) {
+        $this->load->model("RecipeModel");
+        $recipes = $this->RecipeModel->getRecipeByName($name);
+
+        $this->load->model("IngredientModel");
+        $ingredients = $this->IngredientModel->getIngredientsByRecipe($name);
+
+        $data = array(
+            'recipe' => $recipes,
+            'ingredients' => $ingredients
+        );
+
+        $this->renderView('recipe/recipe', $data);
     }
 
     public function update() {

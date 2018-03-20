@@ -4,6 +4,11 @@ class RecipeModel extends MY_Model {
         return $this->getAllFromDb("recipe");
     }
 
+    public function getRecipeByName($recipeName) {
+        $query = $this->db->select("recipe.*")->from('recipe')->where('name', $this->db->escape_str(urldecode($recipeName)));
+        return $query->get()->result();
+    }
+
     public function insert($name, $time, $difficulty, $peopleNb, $text) {
         $data = array(
             'name' => $this->db->escape_str($name),
