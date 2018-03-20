@@ -5,6 +5,7 @@
         <?php foreach ($dummy as $recipe): ?>
           <form method="POST" action="http://adsillh-bulma.fr/index.php/recipes/update" class="field has-addons has-addons-centered">
             <div class="control">
+              <label class="label">Recette</label>
               <input type="hidden" name="id" value="<?php echo $recipe->id ?>"/>
               <input class="input is-rounded" type="text" name="name" value="<?php echo $recipe->name ?>"/>
               <input class="input is-rounded" type="text" name="time" value="<?php echo $recipe->time ?>"/>
@@ -19,6 +20,7 @@
         <?php endforeach ?>
         <form method="POST" action="http://adsillh-bulma.fr/index.php/recipes/insert" class="field has-addons has-addons-centered">
           <div class="control">
+              <label class="label">Recette</label>
               <input class="input is-rounded" type="text" name="name" />
               <input class="input is-rounded" type="text" name="time" />
               <input class="input is-rounded" type="text" name="difficulty" />
