@@ -2,27 +2,44 @@
 
 class RecipeController extends MY_Controller {
     public function index() {
+        $this->load->model("RecipeModel");
+        $recipes = $this->RecipeModel->getAll();
         $data = array(
-            'pageTitle' => "Marmitonne"
+            'dummy' => $recipes
         );
 
-        $data['title'] = "Pates a la bière";
-        $data['time'] = 15;
-        $data['personne'] = 4;
-        $data['diff'] = 1;
-        $data['ingredient'] = array();
-        $data['ingredient'][0] = array('pates',400,'g');
-        $data['ingredient'][1] = array('emental',20,'g');
-        $data['recipe'] = "<li>Faire cuire les pâtes</li><li>Se servire une bière !</li><li>Mangez !</li>";
-        
-        $this->renderView('recipe/main', $data);
+        $this->renderView('recipe/list', $data);
     }
 
     public function recipe($id) {
-        $data = array(
-            'pageTitle' => "Marmitonne"
-        );
+        $this->renderView('recipe/recipe');
+    }
 
-        $this->renderView('recipe/main', $data);
+    public function update() {
+        $this->form_validation->set_rules("name", "Nom", "required|alpha_numeric_spaces");
+        $this->form_validation->set_rules("time", "Temps", "required|integer");
+        $this->form_validation->set_rules("difficulty", "Difficulté", "required|integer");
+        $this->form_validation->set_rules("peopleNb", "Nombre de personnes", "required|integer");
+        $this->form_validation->set_rules("text", "Texte", "required");
+        if ($this->form_validation->run() == true) {
+            $this->load->model("RecipeModel");
+            $this->RecipeModel->update($_POST["id"], $_POST["name"], $_POST["time"], $_POST["difficulty"], $_POST["peopleNb"], $_POST["text"]);
+        }
+
+        $this->index();
+    }
+
+    public function insert() {
+        $this->form_validation->set_rules("name", "Nom", "required|alpha_numeric_spaces");
+        $this->form_validation->set_rules("time", "Temps", "required|integer");
+        $this->form_validation->set_rules("difficulty", "Difficulté", "required|integer");
+        $this->form_validation->set_rules("peopleNb", "Nombre de personnes", "required|integer");
+        $this->form_validation->set_rules("text", "Texte", "required");
+        if ($this->form_validation->run() == true) {
+            $this->load->model("RecipeModel");
+            $this->RecipeModel->insert($_POST["name"], $_POST["time"], $_POST["difficulty"], $_POST["peopleNb"], $_POST["text"]);
+        }
+
+        $this->index();
     }
 }
