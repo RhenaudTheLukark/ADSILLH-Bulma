@@ -29,6 +29,35 @@ class RecipeController extends MY_Controller {
         $this->index();
     }
 
+    public function addAjax() {
+        $this->form_validation->set_rules("name", "Nom Recette", "required|alpha_numeric_spaces");
+        $this->form_validation->set_rules("ingName", "Nom Ingrédient", "required|alpha_numeric_spaces");
+        $this->form_validation->set_rules("quantity", "Quantité", "required|integer");
+        $this->form_validation->set_rules("quantityUnit", "Unité", "alpha_numeric_spaces");
+        if ($this->form_validation->run() == true) {
+            $this->load->model("IngredientModel");
+            $this->IngredientModel->insertIngredientByRecipe($_POST["name"], $_POST["ingName"], $_POST["quantity"], $_POST["quantityUnit"]);
+            return "Good";
+        }
+        return "Bad";
+    }
+
+    public function add2() {
+        $this->form_validation->set_rules("name", "Nom", "required|alpha_numeric_spaces");
+        $this->form_validation->set_rules("time", "Temps", "required|integer");
+        $this->form_validation->set_rules("difficulty", "Difficulté", "required|integer");
+        $this->form_validation->set_rules("peopleNb", "Nombre de personnes", "required|integer");
+        $this->form_validation->set_rules("text", "Texte", "required");
+        if ($this->form_validation->run() == true) {
+            $data = array( 
+                'data' => $_POST
+            );
+            $this->renderView('recipe/add2', $data);
+        } else {
+            $this->index();
+        }
+    }
+
     public function insert() {
         $this->form_validation->set_rules("name", "Nom", "required|alpha_numeric_spaces");
         $this->form_validation->set_rules("time", "Temps", "required|integer");

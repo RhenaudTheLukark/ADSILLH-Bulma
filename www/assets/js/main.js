@@ -12,7 +12,6 @@ $remPersonButton.on("click", (e) => {
         $funcChangeRecipe($number, $number - 1000);
 });
 
-console.log("SEGA");
 $funcChangeRecipe = function(number, newNumber) {
     let $multiply = newNumber / number;
     $(".ingredient").each((index, elem) => {
