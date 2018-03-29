@@ -2,7 +2,7 @@
 
     <section class="section">
       <div class="container">
-        <form method="POST" action="http://adsillh-bulma.fr/index.php/recipes/insert" class="field has-addons has-addons-centered">
+        <form id="submitForm" method="POST" action="http://adsillh-bulma.fr/recipes/insert" class="field has-addons has-addons-centered" onsubmit="processForm()">
           <div class="control">
             Nom de la recette: <input id="name" class="input is-rounded" type="text" name="name" value="<?php echo $data["name"] ?>" readonly/>
             Temps de préparation: <input id="time" class="input is-rounded" type="text" name="time" value="<?php echo $data["time"] ?>" readonly/>
@@ -20,7 +20,7 @@
           </ul>
         </p><br>
 
-        <form id="ajax-form" method="POST" action="http://adsillh-bulma.fr/index.php/recipes/addAjax" class="field has-addons has-addons-centered">
+        <form id="ajax-form" method="POST" action="http://adsillh-bulma.fr/recipes/addAjax" class="field has-addons has-addons-centered">
           <div class="control">
             Nom: <input id="ajax-name" class="input is-rounded" type="text" name="ingName" />
             Quantité: <input id="ajax-quty" class="input is-rounded" type="text" name="quantity" />
@@ -32,6 +32,43 @@
     </section>
 
     <script>
+      function processForm() {
+        //Retreive the data from the form:
+        var data = $('#submitForm').serializeArray();
+        data["ingredients"] = [];
+
+        //Add in additional data to the original form data:
+        let children = $('#result').children();
+        children.each(function(idx, val){
+          let splitVal = val.firstChild.nodeValue.split(":");
+          console.log(val.firstChild.nodeValue);
+          let splitValSpace = splitVal[1].split(" ");
+          data["ingredients"].push(
+            {name: splitVal[0], quantity: splitValSpace[1], quantityUnit: splitVal[1].slice(splitValSpace[1].length + 2)}
+          );
+        });
+        console.log(data);
+
+        let selectNameData = $('<input>').attr('name','ingrNameList').toggleClass("hidden");
+        let selectQutyData = $('<input>').attr('name','ingrQutyList').toggleClass("hidden");
+        let selectQtyUData = $('<input>').attr('name','ingrQtyUList').toggleClass("hidden");
+
+        $(data["ingredients"]).each(function(idx, val) {
+          if (selectNameData.val() != "") {
+            selectNameData.val(selectNameData.val().concat(","));
+            selectQutyData.val(selectQutyData.val().concat(","));
+            selectQtyUData.val(selectQtyUData.val().concat(","));
+          }
+          selectNameData.val(selectNameData.val().concat(val.name));
+          selectQutyData.val(selectQutyData.val().concat(val.quantity));
+          selectQtyUData.val(selectQtyUData.val().concat(val.quantityUnit));
+        });
+
+        $('#submitForm').append(selectNameData);
+        $('#submitForm').append(selectQutyData);
+        $('#submitForm').append(selectQtyUData);
+      }
+
       $(document).ready(function() { 
         $('#ajax-add').on('click', (e) => {
           e.preventDefault();
@@ -41,9 +78,9 @@
             quantityUnit: $("#ajax-qtyU").val()
           }
           $.ajax({
-            url: "http://adsillh-bulma.fr/index.php/recipes/addAjax",
             type: "POST",
-            data: {name:$("#name").val(), ingName:$data.name, quantity:$data.quantity, quantityUnit:$data.quantityUnit}
+            url: "http://adsillh-bulma.fr/recipes/addAjax",
+            data: { name: $("#name").val(), ingName: $data.name, quantity: $data.quantity, quantityUnit: $data.quantityUnit }
           })
           .done((data) => {
             console.log("Look mom I did it!");
@@ -51,7 +88,7 @@
             if (data === null) {
               console.log("Shiiiieeeeeet");
             } else {
-              const $li = $('<li>').text($("#ajax-name").val() + ": " + $("#ajax-quty").val() + $("#ajax-qtyU").val());
+              const $li = $('<li>').text($("#ajax-name").val() + ": " + $("#ajax-quty").val() + " " + $("#ajax-qtyU").val());
               $('#result').append($li);
             }
           })

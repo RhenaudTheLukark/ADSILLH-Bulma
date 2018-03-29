@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <?php foreach ($dummy as $recipe): ?>
-          <form method="POST" action="http://adsillh-bulma.fr/index.php/recipes/update" class="field has-addons has-addons-centered">
+          <form method="POST" action="http://adsillh-bulma.fr/recipes/update" class="field has-addons has-addons-centered">
             <div class="control">
               <input type="hidden" name="id" value="<?php echo $recipe->id ?>"/>
               <input class="input is-rounded" type="text" name="name" value="<?php echo $recipe->name ?>"/>
@@ -17,7 +17,7 @@
             </div>
           </form>
         <?php endforeach ?>
-        <form method="POST" action="http://adsillh-bulma.fr/index.php/recipes/add2" class="field has-addons has-addons-centered">
+        <form method="POST" action="http://adsillh-bulma.fr/recipes/add2" class="field has-addons has-addons-centered">
           <div class="control">
               <input id="ajax-name" class="input is-rounded" type="text" name="name" />
               <input id="ajax-time" class="input is-rounded" type="text" name="time" />

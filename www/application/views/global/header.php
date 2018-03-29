@@ -40,10 +40,10 @@
               </div>
               <div id="navbarMenuHeroA" class="navbar-menu">
                 <div class="navbar-end">
-                  <a class="navbar-item" href="http://adsillh-bulma.fr/index.php">
+                  <a class="navbar-item" href="http://adsillh-bulma.fr">
                     Accueil
                   </a>
-                  <a class="navbar-item" href="http://adsillh-bulma.fr/index.php/recipe">
+                  <a class="navbar-item" href="http://adsillh-bulma.fr/recipe">
                     Recettes
                   </a>
                 </div>

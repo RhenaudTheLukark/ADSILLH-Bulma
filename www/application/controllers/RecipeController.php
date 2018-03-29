@@ -34,12 +34,9 @@ class RecipeController extends MY_Controller {
         $this->form_validation->set_rules("ingName", "Nom Ingrédient", "required|alpha_numeric_spaces");
         $this->form_validation->set_rules("quantity", "Quantité", "required|integer");
         $this->form_validation->set_rules("quantityUnit", "Unité", "alpha_numeric_spaces");
-        if ($this->form_validation->run() == true) {
-            $this->load->model("IngredientModel");
-            $this->IngredientModel->insertIngredientByRecipe($_POST["name"], $_POST["ingName"], $_POST["quantity"], $_POST["quantityUnit"]);
-            return "Good";
+        if ($this->form_validation->run() != true) {
+            throw "Bad form";
         }
-        return "Bad";
     }
 
     public function add2() {
@@ -64,9 +61,23 @@ class RecipeController extends MY_Controller {
         $this->form_validation->set_rules("difficulty", "Difficulté", "required|integer");
         $this->form_validation->set_rules("peopleNb", "Nombre de personnes", "required|integer");
         $this->form_validation->set_rules("text", "Texte", "required");
+        $this->form_validation->set_rules("ingrNameList", "Noms ingrédients", "required");
+        $this->form_validation->set_rules("ingrQutyList", "Quantité ingrédients", "required");
+        $this->form_validation->set_rules("ingrQtyUList", "Unité de quantité ingrédients", "required");
         if ($this->form_validation->run() == true) {
             $this->load->model("RecipeModel");
             $this->RecipeModel->insert($_POST["name"], $_POST["time"], $_POST["difficulty"], $_POST["peopleNb"], $_POST["text"]);
+
+            $this->load->model("IngredientModel");
+            $ingrNameList = explode(",", $_POST["ingrNameList"]);
+            $ingrQutyList = explode(",", $_POST["ingrQutyList"]);
+            $ingrQtyUList = explode(",", $_POST["ingrQtyUList"]);
+            
+            $max = sizeof($ingrNameList);
+            for ($i = 0; $i < $max; $i++) {
+                $this->IngredientModel->insert($ingrNameList[$i]);
+                $this->IngredientModel->insertIngredientByRecipe($_POST["name"], $ingrNameList[$i], $ingrQutyList[$i], $ingrQtyUList[$i]);
+            }
         }
         
         $this->index();
