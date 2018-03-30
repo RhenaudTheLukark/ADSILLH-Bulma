@@ -43,8 +43,11 @@
                   <a class="navbar-item" href="http://adsillh-bulma.fr">
                     Accueil
                   </a>
-                  <a class="navbar-item" href="http://adsillh-bulma.fr/recipe">
+                  <a class="navbar-item" href="http://adsillh-bulma.fr/recipes">
                     Recettes
+                  </a>
+                  <a class="navbar-item" href="http://adsillh-bulma.fr/ingredients">
+                    Ingredients
                   </a>
                 </div>
               </div>
