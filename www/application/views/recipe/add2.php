@@ -2,7 +2,7 @@
 
     <section class="section">
       <div class="container">
-        <form id="submitForm" method="POST" action="http://adsillh-bulma.fr/recipes/insert" class="field has-addons has-addons-centered" onsubmit="processForm()">
+        <form id="submitForm" method="POST" action="/recipes/insert" class="field has-addons has-addons-centered" onsubmit="processForm()">
           <div class="control">
             Nom de la recette: <input id="name" class="input is-rounded" type="text" name="name" value="<?php echo $data["name"] ?>" readonly/>
             Temps de préparation: <input id="time" class="input is-rounded" type="text" name="time" value="<?php echo $data["time"] ?>" readonly/>
@@ -20,7 +20,7 @@
           </ul>
         </p><br>
 
-        <form id="ajax-form" method="POST" action="http://adsillh-bulma.fr/recipes/addAjax" class="field has-addons has-addons-centered">
+        <form id="ajax-form" method="POST" action="/recipes/addAjax" class="field has-addons has-addons-centered">
           <div class="control">
             Nom: <input id="ajax-name" class="input is-rounded" type="text" name="ingName" />
             Quantité: <input id="ajax-quty" class="input is-rounded" type="text" name="quantity" />
@@ -79,7 +79,7 @@
           }
           $.ajax({
             type: "POST",
-            url: "http://adsillh-bulma.fr/recipes/addAjax",
+            url: "/recipes/addAjax",
             data: { name: $("#name").val(), ingName: $data.name, quantity: $data.quantity, quantityUnit: $data.quantityUnit }
           })
           .done((data) => {

@@ -8,13 +8,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="manifest" href="http://adsillh-bulma.fr/assets/site.webmanifest">
-    <link rel="apple-touch-icon" href="http://adsillh-bulma.fr/assets/icon.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <link rel="apple-touch-icon" href="/assets/icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="http://adsillh-bulma.fr/assets/css/normalize.css">
-    <link rel="stylesheet" href="http://adsillh-bulma.fr/assets/css/bulma.css">
-    <link rel="stylesheet" href="http://adsillh-bulma.fr/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -40,10 +40,10 @@
               </div>
               <div id="navbarMenuHeroA" class="navbar-menu">
                 <div class="navbar-end">
-                  <a class="navbar-item" href="http://adsillh-bulma.fr">
+                  <a class="navbar-item" href="/">
                     Accueil
                   </a>
-                  <a class="navbar-item" href="http://adsillh-bulma.fr/recipe">
+                  <a class="navbar-item" href="/recipe">
                     Recettes
                   </a>
                 </div>

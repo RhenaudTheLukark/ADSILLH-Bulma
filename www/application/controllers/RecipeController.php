@@ -4,7 +4,7 @@ class RecipeController extends MY_Controller {
     public function index() {
         $this->load->model("RecipeModel");
         $recipes = $this->RecipeModel->getAll();
-        $data = array( 
+        $data = array(
             'dummy' => $recipes
         );
 
@@ -25,7 +25,7 @@ class RecipeController extends MY_Controller {
             $this->load->model("RecipeModel");
             $this->RecipeModel->update($_POST["id"], $_POST["name"], $_POST["time"], $_POST["difficulty"], $_POST["peopleNb"], $_POST["text"]);
         }
-        
+
         $this->index();
     }
 
@@ -79,7 +79,7 @@ class RecipeController extends MY_Controller {
                 $this->IngredientModel->insertIngredientByRecipe($_POST["name"], $ingrNameList[$i], $ingrQutyList[$i], $ingrQtyUList[$i]);
             }
         }
-        
+
         $this->index();
     }
 }
