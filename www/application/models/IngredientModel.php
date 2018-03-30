@@ -27,19 +27,4 @@ class IngredientModel extends MY_Model {
         );
         $this->db->replace('ingredient', $data);
     }
-
-    public function getIngredientsByRecipe($recipeName) {
-        $query = $this->db->select("recipe_ingredients.*")->from('recipe_ingredients')->where('recipeName', $this->db->escape_str($recipeName));
-        return $query->get()->result("recipe_ingredients");
-    }
-
-    public function insertIngredientByRecipe($recipeName, $ingredientName, $quantity, $quantityUnit) {
-        $data = array(
-            'recipeName' => $this->db->escape_str($recipeName),
-            'ingredient' => $this->db->escape_str($ingredientName),
-            'quantity' => $quantity,
-            'quantity_unit' => $this->db->escape_str($quantityUnit)
-        );
-        $this->db->insert('recipe_ingredients', $data);
-    }
 }

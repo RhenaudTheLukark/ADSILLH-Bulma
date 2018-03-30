@@ -20,6 +20,7 @@
         <?php endforeach ?>
         <form method="POST" action="/recipes/add2" class="field has-addons has-addons-centered">
           <div class="control">
+              <label class="label">Nouvelle recette</label>
               Nom: <input id="ajax-name" class="input is-rounded" type="text" name="name" />
               Temps de réparation: <input id="ajax-time" class="input is-rounded" type="text" name="time" />
               Difficulté: <input id="ajax-diff" class="input is-rounded" type="text" name="difficulty" />

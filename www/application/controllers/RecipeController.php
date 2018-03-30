@@ -12,14 +12,16 @@ class RecipeController extends MY_Controller {
     }
 
     public function recipe($name) {
-        $this->load->model("RecipeModel");
-        $recipes = $this->RecipeModel->getRecipeByName($name);
+        $name = urldecode($name);
 
-        $this->load->model("IngredientModel");
-        $ingredients = $this->IngredientModel->getIngredientsByRecipe($name);
+        $this->load->model("RecipeModel");
+        $recipe = $this->RecipeModel->get($name);
+
+        $this->load->model("RecipeIngredientsModel");
+        $ingredients = $this->RecipeIngredientsModel->get($name);
 
         $data = array(
-            'recipe' => $recipes,
+            'recipe' => $recipe,
             'ingredients' => $ingredients
         );
 
@@ -80,6 +82,7 @@ class RecipeController extends MY_Controller {
             $this->RecipeModel->insert($_POST["name"], $_POST["time"], $_POST["difficulty"], $_POST["peopleNb"], $_POST["text"]);
 
             $this->load->model("IngredientModel");
+            $this->load->model("RecipeIngredientsModel");
             $ingrNameList = explode(",", $_POST["ingrNameList"]);
             $ingrQutyList = explode(",", $_POST["ingrQutyList"]);
             $ingrQtyUList = explode(",", $_POST["ingrQtyUList"]);
@@ -87,7 +90,7 @@ class RecipeController extends MY_Controller {
             $max = sizeof($ingrNameList);
             for ($i = 0; $i < $max; $i++) {
                 $this->IngredientModel->insert($ingrNameList[$i]);
-                $this->IngredientModel->insertIngredientByRecipe($_POST["name"], $ingrNameList[$i], $ingrQutyList[$i], $ingrQtyUList[$i]);
+                $this->RecipeIngredientsModel->insert($_POST["name"], $ingrNameList[$i], $ingrQutyList[$i], $ingrQtyUList[$i]);
             }
         }
 
