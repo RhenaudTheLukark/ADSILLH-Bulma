@@ -3,13 +3,13 @@ const $remPersonButton = $("#personnes-moins");
 
 $addPersonButton.on("click", (e) => {
     let $number = parseFloat($("#personnes").text());
-    $funcChangeRecipe($number, $number + 1000);
+    $funcChangeRecipe($number, $number + 1);
 });
 
 $remPersonButton.on("click", (e) => {
     let $number = parseFloat($("#personnes").text());
-    if($number > 2000)
-        $funcChangeRecipe($number, $number - 1000);
+    if($number > 1)
+        $funcChangeRecipe($number, $number - 1);
 });
 
 $funcChangeRecipe = function(number, newNumber) {
