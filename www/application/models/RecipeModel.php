@@ -7,7 +7,7 @@ class RecipeModel extends MY_Model {
     public function get($name) {
         foreach ($this->db->select("recipe.*")->from('recipe')->where('name', $this->db->escape_str($name))->get()->result() as $row) {
             return $row;
-        } 
+        }
         return null;
     }
 

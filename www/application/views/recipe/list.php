@@ -5,6 +5,7 @@
         <?php foreach ($dummy as $recipe): ?>
           <form method="POST" action="/recipes/update" class="field has-addons has-addons-centered">
             <div class="control">
+              <label class="label">Recette</label>
               <input type="hidden" name="id" value="<?php echo $recipe->id ?>"/>
               Nom: <input class="input is-rounded" type="text" name="name" value="<?php echo $recipe->name ?>"/>
               Temps de réparation: <input class="input is-rounded" type="text" name="time" value="<?php echo $recipe->time ?>"/>

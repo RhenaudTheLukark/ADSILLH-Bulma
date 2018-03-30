@@ -19,8 +19,11 @@ class HomeController extends MY_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index() {
+        $this->load->model("RecipeModel");
+        $recipes = $this->RecipeModel->getAll();
         $data = array(
-            'pageTitle' => "Marmitonne"
+            'pageTitle' => "Marmitonne",
+            'recipes' => $recipes
         );
 
 		$this->renderView('home_view', $data);

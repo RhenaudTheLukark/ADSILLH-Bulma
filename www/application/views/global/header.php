@@ -46,6 +46,9 @@
                   <a class="navbar-item" href="/recipe">
                     Recettes
                   </a>
+                  <a class="navbar-item" href="http://adsillh-bulma.fr/ingredients">
+                    Ingredients
+                  </a>
                 </div>
               </div>
             </div>
